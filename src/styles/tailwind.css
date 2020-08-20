@@ -1,0 +1,59 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.theme-dark {
+  --color-bg-primary: #1d3557;
+  --color-bg-secondary: #e63946;
+  --color-bg-default: #121311;
+  --color-bg-inverse: #2257a0;
+  --color-bg-tertiary: #5a5a5a;
+
+  --color-text-primary: #fff;
+  --color-text-secondary: #44467b;
+  --color-text-default: #373737;
+  --color-text-default-soft: #6a6a6a;
+  --color-text-inverse: #fff;
+  --color-text-inverse-soft: rgba(255, 255, 255, 0.7);
+
+  --font-display: Futura, Trebuchet MS, Arial, sans-serif;
+  --font-body: Futura, Trebuchet MS, Arial, sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-display: 600;
+  --font-weight-btn: 600;
+
+  --rounded-btn: 9999px;
+}
+
+.theme-light {
+  --color-bg-primary: #0077b6;
+  --color-bg-secondary: #f1faee;
+  --color-bg-default: #fff;
+  --color-bg-inverse: #028fdb;
+  --color-bg-tertiary: rgb(228, 220, 220);
+
+  --color-text-primary: rgb(20, 19, 19);
+  --color-text-secondary: #755f17;
+  --color-text-default: #444;
+  --color-text-default-soft: #999;
+  --color-text-inverse: #fff;
+  --color-text-inverse-soft: #999;
+
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --font-weight-normal: 400;
+  --font-weight-display: 400;
+  --font-weight-btn: 600;
+
+  --rounded-btn: 0.25rem;
+}
