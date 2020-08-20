@@ -118,7 +118,7 @@ export default function Navbar({ theme, change }) {
                         className="block px-4 py-2 text-sm text-black hover:bg-gray-300"
                         role="menuitem"
                       >
-                        Sign Uut
+                        Sign Out
                       </a>
                     </div>
                   </div>
