@@ -23,7 +23,7 @@ function* createTodo({ payload }) {
 
     const newTodo = yield call(API.createNewTodo, payload);
 
-    yield put({ type: actions.SET_TODO_SUCCEEDED, payload: newTodo });
+    yield put({ type: actions.SET_TODO_SUCCEEDED, payload: newTodo.data });
   } catch (err) {
     yield put({ type: actions.SET_TODO_FAILED, message: err.message });
   }
@@ -41,13 +41,13 @@ function* deleteTodo({ payload }) {
   }
 }
 
-function* editTodo({ payload }) {
+function* editTodo({ id, title }) {
   try {
     yield put({ type: actions.SET_LOADING });
 
-    const todo = yield call(API.editExistedTodo, payload);
+    const todo = yield call(API.editExistedTodo, id, title);
 
-    yield put({ type: actions.EDIT_TODO_SUCCEEDED, payload: todo });
+    yield put({ type: actions.EDIT_TODO_SUCCEEDED, payload: todo.data });
   } catch (err) {
     yield put({ type: actions.EDIT_TODO_FAILED, message: err.message });
   }
@@ -59,7 +59,7 @@ function* completeTodo({ payload }) {
 
     const todo = yield call(API.completeExistedTodo, payload);
 
-    yield put({ type: actions.COMPLETE_TODO_SUCCEEDED, payload: todo });
+    yield put({ type: actions.COMPLETE_TODO_SUCCEEDED, updates: todo.data });
   } catch (err) {
     yield put({ type: actions.COMPLETE_TODO_FAILED, message: err.message });
   }

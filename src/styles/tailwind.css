@@ -12,8 +12,8 @@ body {
 
 .theme-dark {
   --color-bg-primary: #1d3557;
-  --color-bg-secondary: #e63946;
-  --color-bg-default: #121311;
+  --color-bg-secondary: #6c757d;
+  --color-bg-default: #212529;
   --color-bg-inverse: #2257a0;
   --color-bg-tertiary: #5a5a5a;
 
@@ -41,7 +41,7 @@ body {
   --color-bg-inverse: #028fdb;
   --color-bg-tertiary: rgb(228, 220, 220);
 
-  --color-text-primary: rgb(20, 19, 19);
+  --color-text-primary: rgb(44, 43, 43);
   --color-text-secondary: #755f17;
   --color-text-default: #444;
   --color-text-default-soft: #999;

@@ -16,26 +16,26 @@ export default (state = initialState, action) => {
         loading: true,
       };
     // get todos success
-    case actions.GET_TODOS_SUCCEEDED:
+    case actions.GET_TODOS_SUCCEEDED: // done
       return {
         ...state,
         todos: action.payload,
         loading: false,
       };
     // get todo fail
-    case actions.GET_TODOS_FAILED:
+    case actions.GET_TODOS_FAILED: // done
       return {
         message: action.message,
       };
     // add todo
-    case actions.SET_TODO_SUCCEEDED:
+    case actions.SET_TODO_SUCCEEDED: // done
       return {
         ...state,
         todos: [action.payload, ...state.todos],
         loading: false,
       };
     // set todo fail
-    case actions.SET_TODOS_FAILED:
+    case actions.SET_TODO_FAILED: // done
       return {
         message: action.message,
       };
@@ -43,35 +43,51 @@ export default (state = initialState, action) => {
     case actions.EDIT_TODO_SUCCEEDED:
       return {
         ...state,
-        todos: state.map((todo) => {
-          if (todo.id === action.id) {
+        loading: false,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.payload.id) {
             return {
               ...todo,
-              ...actions.updates,
+              title: action.payload.title,
             };
           }
           return todo;
         }),
       };
     // edit todo fail (patch)
-    case actions.EDIT_TODOS_FAILED:
+    case actions.EDIT_TODO_FAILED:
       return {
         message: action.message,
       };
     // delete todo success
-    case actions.DELETE_TODO_SUCCEEDED:
+    case actions.DELETE_TODO_SUCCEEDED: // done
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload),
         loading: false,
       };
     // delete todo fail
-    case actions.DELETE_TODOS_FAILED:
+    case actions.DELETE_TODO_FAILED: // done
       return {
         message: action.message,
       };
-    // todo complete fail
-    case actions.COMPLETE_TODO_FAILED:
+    // todo complete suceed
+    case actions.COMPLETE_TODO_SUCCEEDED: // done
+      return {
+        ...state,
+        loading: false,
+        todos: state.todos.map((todo) => {
+          if (todo.id === action.updates.id) {
+            return {
+              ...todo,
+              completed: !todo.completed,
+            };
+          }
+          return todo;
+        }),
+      };
+    // todo complete faile
+    case actions.COMPLETE_TODO_FAILED: // done
       return {
         message: action.message,
       };
